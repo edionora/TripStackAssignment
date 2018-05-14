@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script
+  src="http://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+  <script src="script.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="/menubar.css">
+  <link rel="stylesheet" type="text/css" href="/styles.css">
+  <link rel="stylesheet" type="text/css" href="/image.css">
+  <title>Home</title>
+</head>
+<body>
+
+    <div class="container-fluid">    
+
+
+    <% for (let i = 0; i < details.length; i++) { %>
+    <%let flight = details[i];%>
+<div class="container-fluid" >
+    <div class="row">
+    <div class="media">
+        <div class="media-body">
+            <div class="info">
+            <h4>Provider<%=flight.provider%></h4>
+            <p><%=flight.flights%></p>
+        </div>
+        </div>
+    </div>
+    </div> 
+</div>
+    <% }; %>    <!--End of for loop-->
+    
+
+
+    </div> <!-- End of container-->
+    <!--
+    When binding VARIABLES in an ejs template use <%= %>
+    When using javascript control flow (i.e. loops) use <% %>
+    -->  
+
+</body>
+</html>
+
+
