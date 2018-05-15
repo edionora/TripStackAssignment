@@ -1,9 +1,8 @@
 
 const request = require('request')
 const cheerio = require('cheerio')
-const json =require('json')
-//node searchFlights -o YYZ -d YYC
-// argumnts 3 and 5
+const json = require('json')
+
 
 var origin = process.argv[3]
 console.log(origin)
@@ -18,17 +17,28 @@ function flights() {
     }
     request(server, (error, response, body) => {
         const $ = cheerio.load(body);
-        $('div.info').each(function(i,e){
+        $('p').each(function (i, e) {
             var details = $(this)
             var showDetails = details.text();
-            
-            //console.log(showDetails)
-            for (var i = 0; i < showDetails.length; i++){
-                if (showDetails[i].includes(origin) == true && showDetails[i].includes(destination) == true)
-                {
-                    console.log(showDetails[i].flights)
+
+            let flightList = []
+
+            if (showDetails.includes(origin) == true && showDetails.indexOf(origin) < 3) {
+                if (showDetails.includes(destination) == true && showDetails.indexOf(destination > 3)) {
+                    flightList.push(showDetails)
+                    // for (var i = 0; i < flightList.length; i++) {
+                    //         if (flightList[i] !== flightList[i+1]) {
+                    //             var temp = []
+                    //             temp.push(flightList[i])
+                    //         }
+                    //         console.log(temp)
+                    // }
+                    let formatList = flightList.toString()
+                        .replace("[", "")
+                        .replace("]", "")
+                    console.log(formatList)
                 }
-            }
+            }           
         })
     })
 }

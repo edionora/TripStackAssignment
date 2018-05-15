@@ -21,22 +21,24 @@
     <div class="container-fluid">    
 
 
-    <% for (let i = 0; i < details.length; i++) { %>
-    <%let flight = details[i];%>
+    <% for (let i = 0; i < flights.length; i++) { %>
+        <%let flight = flights[i];%>
+        <% for (let j = 0; j < flight.length; j++) { %>
+            <%let travelInfo = flight[j];%>
 <div class="container-fluid" >
     <div class="row">
     <div class="media">
         <div class="media-body">
             <div class="info">
-            <h4>Provider<%=flight.provider%></h4>
-            <p><%=flight.flights%></p>
+            <!-- <h4>Provider<%=flight.provider%></h4> -->
+            <p><%=travelInfo%></p>
         </div>
         </div>
     </div>
     </div> 
 </div>
-    <% }; %>    <!--End of for loop-->
-    
+    <% }; %>    <!--End of second for loop-->
+    <% }; %>    <!--End of for loop-->    
 
 
     </div> <!-- End of container-->
