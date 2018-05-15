@@ -1,14 +1,11 @@
-
 const request = require('request')
 const cheerio = require('cheerio')
 const json = require('json')
-
 
 var origin = process.argv[3]
 console.log(origin)
 var destination = process.argv[5]
 console.log(destination)
-
 
 function flights() {
     let server = {
@@ -20,9 +17,7 @@ function flights() {
         $('p').each(function (i, e) {
             var details = $(this)
             var showDetails = details.text();
-
             let flightList = []
-
             if (showDetails.includes(origin) == true && showDetails.indexOf(origin) < 3) {
                 if (showDetails.includes(destination) == true && showDetails.indexOf(destination > 3)) {
                     flightList.push(showDetails)
